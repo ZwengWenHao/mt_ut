@@ -1,0 +1,136 @@
+<template>
+  <div class="ganttChart_wrap">
+    <GanttChart ref="GanttChart" :formData="formData"  :showName="formData.choose"></GanttChart>
+  </div>
+</template>
+
+<script>
+import moment from 'moment'
+export default {
+  name:'ganttChart',
+  data() {
+    return {
+      list: [
+        {
+          age: "60",
+          ageType: null,
+          amAsnCode1: null,
+          amAsnCode2: null,
+          amAsnName1: null,
+          amAsnName2: null,
+          amDocCode: "HD047",
+          amDocName: null,
+          anaeBeginTime: "2024-03-06 09:39:16",
+          anaeCode: "5",
+          anaeEndTime: "2024-03-06 11:23:38",
+          anaeLevel: null,
+          anaeName: "基础麻醉",
+          applyNo: "20240306001",
+          bedNo: null,
+          birthday: null,
+          cardNo: "123",
+          clinicNo: null,
+          consoleCode: null,
+          daySign: null,
+          deptCode: "D0106",
+          deptName: "重症监护(内科)",
+          duration: 90,
+          dutyDocName: null,
+          dutyNurseName: null,
+          enterTime: "2024-03-06 09:39:11",
+          execDept: null,
+          firstAsnCode: null,
+          firstAsnName: null,
+          fourthAsnCode: null,
+          fourthAsnName: null,
+          genderCode: "2",
+          genderName: "女",
+          guiDocCode: null,
+          guiDocName: null,
+          id: "12E95BAF6E6B3CD4E0630100007F5BB0",
+          inhNo: "INH2023102605",
+          isFeedback: null,
+          operCode: "HD2999",
+          operSeq: "1",
+          operTime: "2024-03-06 14:44:17",
+          operateCode: "00.0101",
+          operateLevel: null,
+          operateName: "头部血管治疗性超声",
+          opsBeginTime: "2024-03-06 09:39:19",
+          opsCate: "4",
+          opsCateName: "开放型",
+          opsDate: "2024-03-06 08:00:00",
+          opsDeptCode: "operDept",
+          opsDeptName: null,
+          opsDocCode: "HD060",
+          opsDocName: "过智伟",
+          opsEndTime: "2024-03-06 11:23:34",
+          opsHaemorrhage: null,
+          opsIncisionLevel: null,
+          opsInput: null,
+          opsOutput: null,
+          opsPartCode: null,
+          opsPartName: null,
+          opsPosCode: null,
+          opsPosName: null,
+          opsProRec: null,
+          opsSerialNum: "20240306001",
+          opsState: "operPACUTrans",
+          opsStateName: "出间转运",
+          opsTransfusion: null,
+          opsType: null,
+          outTime: "2024-03-06 13:31:53",
+          patDestination: null,
+          patName: "宋泰平",
+          patientNo: null,
+          posDiagnosisCode: null,
+          posDiagnosisName: null,
+          preDiagnosisCode: "A01.000",
+          preDiagnosisName: "伤寒",
+          preOpsTime: "2024-03-06 09:36:38",
+          realDuraton: 104,
+          receptTime: "2024-03-06 09:38:34",
+          roomCode: "01",
+          secondAsnCode: null,
+          secondAsnName: null,
+          sectionColor: "#259998",
+          sexCode: "2",
+          termSign: null,
+          thirdAsnCode: null,
+          thirdAsnName: null,
+          tourNurCode: "HD063",
+          tourNurCode2: null,
+          tourNurName: null,
+          tourNurName2: null,
+          visitNum: null,
+          wardCode: "W0101",
+          wardName: "内科1病区",
+          washNurCode: "1",
+          washNurCode2: null,
+          washNurName: null,
+          washNurName2: null,
+        },
+      ],
+      formData: {
+        opsDate: moment().format("YYYY-MM-DD"),
+        choose: [1,5],
+        opsType: "111",
+        opsDeptCode: "",
+        condition: "",
+        beginTime: moment().startOf("day").format("YYYY-MM-DD HH:mm:ss"),
+        endTime: moment().endOf("day").format("YYYY-MM-DD HH:mm:ss"),
+      },
+    };
+  },
+  mounted() {
+    // this.$refs.GanttChart.getData(this.list);
+  },
+};
+</script>
+
+<style>
+.ganttChart_wrap{
+    height: 100%;
+    height: 100%;
+}
+</style>
