@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import page from '@/views/autoRouter'
+import {Local} from '@/utils/storage'
+const permission = Local.get('permission')
+console.log( 'permission',JSON.parse(permission));
 Vue.use(VueRouter)
 
 const routes = [

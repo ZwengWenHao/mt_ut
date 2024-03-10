@@ -23,8 +23,9 @@
         style="text-align: right; font-size: 12px; background: #495259"
       >
         头部
+        {{ permission }}
       </el-header>
-      <el-main>
+      <el-main class="wrap_main">
         <router-view />
       </el-main>
     </el-container>
@@ -32,60 +33,77 @@
 </template>
 
 <script>
+import { Local } from "@/utils/storage";
+import { mapGetters } from "vuex";
 export default {
   name: "layout",
   data() {
     return {
       defaultActive: "/json-editor",
-      navList: [
-        {
-          menuName: "Component",
-          id: "1",
-          child: [
-            {
-              menuName: "json-editor",
-              id: "01",
-              url: "/json-editor",
-            },
-          ],
-        },
-        {
-          menuName: "Table",
-          id: "2",
-          child: [
-            {
-              menuName: "dashboard",
-              id: "02",
-              url: "/dashboard",
-            },
-          ],
-        },
-        {
-          menuName: "EchartsSetOf",
-          id: "3",
-          child: [
-            {
-              menuName: "GanttChart",
-              id: "03",
-              url: "/ganttChart",
-            },
-          ],
-        },
-        {
-          menuName: "Timeline",
-          id: "3",
-          child: [
-            {
-              menuName: "timeline",
-              id: "03",
-              url: "/timeline",
-            },
-          ],
-        },
-      ],
+      // navList: [
+      //   {
+      //     menuName: "Component",
+      //     id: "1",
+      //     child: [
+      //       {
+      //         menuName: "json-editor",
+      //         id: "01",
+      //         url: "/json-editor",
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     menuName: "Table",
+      //     id: "2",
+      //     child: [
+      //       {
+      //         menuName: "dashboard",
+      //         id: "02",
+      //         url: "/dashboard",
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     menuName: "EchartsSetOf",
+      //     id: "3",
+      //     child: [
+      //       {
+      //         menuName: "GanttChart",
+      //         id: "03",
+      //         url: "/ganttChart",
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     menuName: "Timeline",
+      //     id: "3",
+      //     child: [
+      //       {
+      //         menuName: "timeline",
+      //         id: "03",
+      //         url: "/timeline",
+      //       },
+      //     ],
+      //   },
+      // ],
     };
   },
+  computed: {
+    navList() {
+      return JSON.parse(Local.get("permission"));
+    },
+  },
   methods: {
+    generateRandomId(length = 32) {
+      const characters =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let randomId = "";
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        randomId += characters.charAt(randomIndex);
+      }
+      return randomId;
+    },
     selectMenu(v) {
       this.defaultActive = v;
     },
@@ -109,5 +127,8 @@ export default {
 .el-menu-item.is-active {
   background: #dcf0fe !important;
   font-weight: 700;
+}
+.wrap_main {
+  padding: 5px !important;
 }
 </style>

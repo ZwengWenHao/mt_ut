@@ -6,5 +6,14 @@ module.exports = defineConfig({
     plugins: [
       new MonacoWebpackPlugin()
     ]
+  },
+  devServer: {
+    client: {
+      overlay: {
+        warnings: false,
+        errors: false,
+      },
+      overlay: false,
+    }
   }
 })
