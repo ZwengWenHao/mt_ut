@@ -1,14 +1,5 @@
 <template>
-  <div class="JsonEditor">
-    <el-drawer
-      v-bind="$attrs"
-      v-on="$listeners"
-      @opened="onOpen"
-      @close="onClose"
-    >
-      <div id="editorJson" class="json-editor" />
-    </el-drawer>
-  </div>
+  <div id="editorJson" class="json-editor" />
 </template>
 
 <script>
@@ -27,6 +18,14 @@ export default {
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {};
+  },
+  computed: {},
+  watch: {},
+  created() {
+    this.onOpen()
   },
   mounted() {
     window.addEventListener("keydown", this.preventDefaultSave);
@@ -57,7 +56,7 @@ export default {
       loadBeautifier((btf) => {
         beautifier = btf;
         this.beautifierJson = beautifier.js(this.jsonStr, beautifierConf.js);
-        console.log( this.beautifierJson);
+        console.log(this.beautifierJson);
         loadMonaco((val) => {
           monaco = val;
           this.setEditorValue("editorJson", this.beautifierJson);
@@ -66,6 +65,7 @@ export default {
     },
     onClose() {},
     setEditorValue(id, codeStr) {
+      console.log("monaco", monaco);
       if (this.jsonEditor) {
         this.jsonEditor.setValue(codeStr);
       } else {
@@ -111,14 +111,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .el-drawer__header {
-  display: none;
-}
-.JsonEditor{
-  width: 100%;
-  height: calc(100vh - 33px);
-}
-.json-editor {
-  height: calc(100vh - 33px);
+.editorJson {
+  height: 100vh;
 }
 </style>
