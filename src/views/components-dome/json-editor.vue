@@ -17,7 +17,7 @@ export default {
   components: { JsonEditor },
   data() {
     return {
-      jsonDrawerVisible: false,
+      jsonDrawerVisible: true,
       formData: '',
     };
   },

@@ -23,7 +23,6 @@
         style="text-align: right; font-size: 12px; background: #495259"
       >
         头部
-        {{ permission }}
       </el-header>
       <el-main class="wrap_main">
         <router-view />
@@ -40,52 +39,63 @@ export default {
   data() {
     return {
       defaultActive: "/json-editor",
-      // navList: [
-      //   {
-      //     menuName: "Component",
-      //     id: "1",
-      //     child: [
-      //       {
-      //         menuName: "json-editor",
-      //         id: "01",
-      //         url: "/json-editor",
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     menuName: "Table",
-      //     id: "2",
-      //     child: [
-      //       {
-      //         menuName: "dashboard",
-      //         id: "02",
-      //         url: "/dashboard",
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     menuName: "EchartsSetOf",
-      //     id: "3",
-      //     child: [
-      //       {
-      //         menuName: "GanttChart",
-      //         id: "03",
-      //         url: "/ganttChart",
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     menuName: "Timeline",
-      //     id: "3",
-      //     child: [
-      //       {
-      //         menuName: "timeline",
-      //         id: "03",
-      //         url: "/timeline",
-      //       },
-      //     ],
-      //   },
-      // ],
+      navList: [
+        {
+          menuName: "Component",
+          id: "1",
+          child: [
+            {
+              menuName: "json-editor",
+              id: "01",
+              url: "/json-editor",
+            },
+          ],
+        },
+        {
+          menuName: "Table",
+          id: "2",
+          child: [
+            {
+              menuName: "dashboard",
+              id: "02",
+              url: "/dashboard",
+            },
+          ],
+        },
+        {
+          menuName: "EchartsSetOf",
+          id: "3",
+          child: [
+            {
+              menuName: "GanttChart",
+              id: "03",
+              url: "/ganttChart",
+            },
+          ],
+        },
+        {
+          menuName: "Timeline",
+          id: "3",
+          child: [
+            {
+              menuName: "timeline",
+              id: "03",
+              url: "/timeline",
+            },
+          ],
+        },
+        {
+          menuName: "Video",
+          id: "4",
+          child: [
+            {
+              menuName: "video",
+              id: "04",
+              url: "/video",
+            },
+          ],
+        },
+      ],
     };
   },
   computed: {

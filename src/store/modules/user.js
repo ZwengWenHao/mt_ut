@@ -1,6 +1,8 @@
 import { Local } from '@/utils/storage'
+import router, { resetRouter } from '@/router/index'
 const state = {
-    permission: []
+    permission: [],
+    roles:[]
 }
 const getters = {
     permission(state) {
@@ -13,8 +15,9 @@ const mutations = {
     }
 }
 const actions = {
-    changeRoles({ commit }) {
+    changeRoles({ commit, state }) {
         commit('permission')
+        router.addRoutes(state.permission)
     }
 }
 export default {
