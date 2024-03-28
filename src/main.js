@@ -12,7 +12,9 @@ import "videojs-markers";
 import "videojs-markers/dist/videojs.markers.css";
 
 import Video from 'video.js'
+import qs from 'qs'
 Vue.prototype.$video = Video
+Vue.prototype.$qs = qs
 
 Vue.use(ElementUI);
 

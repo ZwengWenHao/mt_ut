@@ -28,6 +28,19 @@ export const constantRouterMap = [
                 component: () => import('@/views/features/redirect.vue')
             }
         ]
+    },
+    {
+        path: '/',
+        component: Layout,
+        redirect: '/dashboard',
+        children: [
+            {
+                path: 'dashboard',
+                component: () => import('@/views/dashboard/index.vue'),
+                name: 'Dashboard',
+                meta: { title: '首页' }
+            }
+        ]
     }
 ]
 
