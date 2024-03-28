@@ -54,8 +54,8 @@
 <script>
 import { getCodeImg } from "@/api/login";
 import { encrypt } from "@/utils/rsaEncrypt";
-import Cookies from 'js-cookie'
-import {mapActions} from 'vuex'
+import Cookies from "js-cookie";
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -68,6 +68,7 @@ export default {
       },
       cookiePass: "",
       codeUrl: "",
+      redirect: null,
       rules: {
         username: [
           { required: true, trigger: "blur", message: "用户名不能为空" },
@@ -81,13 +82,23 @@ export default {
       },
     };
   },
-  watch:{
-    $route:{
-      handler(route){
-        const data = route.query
-        console.log(data);
-      }
-    }
+  watch: {
+    $route: {
+      handler(route) {
+        const data = route.query;
+        if (data && data.redirect) {
+          this.redirect = data.redirect;
+          delete data.redirect;
+          if (JSON.stringify(data) !== "{}") {
+            this.redirect =
+              this.redirect +
+              "&" +
+              this.$qs.stringify(data, { indices: false });
+          }
+        }
+      },
+      immediate: true,
+    },
   },
   mounted() {
     this.codeImage();
@@ -95,7 +106,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      Login:'user/Login'
+      Login: "user/Login",
     }),
     async codeImage() {
       const { uuid, img } = await getCodeImg();
@@ -118,13 +129,15 @@ export default {
             Cookies.remove("password");
             Cookies.remove("rememberMe");
           }
-          this.Login(user).then(_=>{
-            console.log('ok');
-            this.$router.push({ path: '/' || '/' })
-          }).catch(error=>{
-            console.log('112',error);
-            this.codeImage();
-          })
+          this.Login(user)
+            .then((_) => {
+              console.log("ok");
+              this.$router.push({ path: "/" || "/" });
+            })
+            .catch((error) => {
+              console.log("112", error);
+              this.codeImage();
+            });
         } else {
           console.log("error submit!!");
           return false;
@@ -136,7 +149,7 @@ export default {
       let password = Cookies.get("password");
       const rememberMe = Cookies.get("rememberMe");
       this.cookiePass = password === undefined ? "" : password;
-      password =  password === undefined ? this.formData.password : password;
+      password = password === undefined ? this.formData.password : password;
       this.formData = {
         username: username === undefined ? this.formData.username : username,
         password,

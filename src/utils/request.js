@@ -1,16 +1,15 @@
 import axios from "axios";
 import Config from '@/settings'
 import { Notification } from 'element-ui'
+import {getToken} from '@/utils/auth'
 
 const service = axios.create({
     baseURL: process.env.NODE_ENV == 'production' ? process.env.VUE_BASE_API : '/',
     timeout: Config.timeOut
 })
 
-service.interceptors.request.use(congfig => {
-    if (true) {
-        return congfig
-    }
+service.interceptors.request.use(config => {
+    return config
 }, error => {
     Promise.reject(error)
 })

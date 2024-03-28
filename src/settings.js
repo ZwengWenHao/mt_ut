@@ -5,4 +5,6 @@ module.exports = {
     tokenCookieExpires: 1,
     // token key 配置
     TokenKey: 'ELADMIN-TOEKN',
+    // 是否显示logo
+    sidebarLogo: true,
 }

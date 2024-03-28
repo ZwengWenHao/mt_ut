@@ -1,7 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
+const path = require('path')
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-const port = 8013 
-console.log('process.env.VUE_BASE_API',process.env.VUE_BASE_API)
+const port = 8013
+console.log('process.env.VUE_BASE_API', process.env.VUE_BASE_API)
 module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
@@ -10,8 +14,8 @@ module.exports = defineConfig({
     ]
   },
   devServer: {
-    port:port,
-    open:true,
+    port: port,
+    open: true,
     client: {
       overlay: {
         warnings: false,
@@ -35,5 +39,22 @@ module.exports = defineConfig({
         }
       }
     },
+  },
+  chainWebpack(config) {
+    config.module
+      .rule('svg')
+      .exclude.add(resolve('src/icons'))
+      .end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+      .end()
   }
 })

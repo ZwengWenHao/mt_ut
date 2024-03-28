@@ -15,6 +15,7 @@ import { Local } from "@/utils/storage";
 import { mapActions, mapGetters } from "vuex";
 export default {
   components: { JsonEditor },
+  name:'JsonEditor',
   data() {
     return {
       jsonDrawerVisible: true,

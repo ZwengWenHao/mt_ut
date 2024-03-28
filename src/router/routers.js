@@ -36,7 +36,7 @@ export const constantRouterMap = [
         children: [
             {
                 path: 'dashboard',
-                component: () => import('@/views/dashboard/index.vue'),
+                component: () => import('@/views/home'),
                 name: 'Dashboard',
                 meta: { title: '首页' }
             }

@@ -1,0 +1,39 @@
+[
+  {
+    "alwaysShow": true,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "system",
+      "noCache": true,
+      "title": "系统管理"
+    },
+    "name": "系统管理",
+    "path": "/system",
+    "redirect": "noredirect",
+    "children": [
+      {
+        "component": "components-dome/json-editor",
+        "hidden": false,
+        "meta": {
+          "icon": "peoples",
+          "noCache": true,
+          "title": "用户管理"
+        },
+        "name": "JsonEditor",
+        "path": "jsonEditor"
+      },
+      {
+        "component": "system/role/index",
+        "hidden": false,
+        "meta": {
+          "icon": "role",
+          "noCache": true,
+          "title": "角色管理"
+        },
+        "name": "Role",
+        "path": "role"
+      }
+    ]
+  }
+]
