@@ -15,30 +15,34 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
-      loadMenus(next, to)
-      next()
+      if (!store.getters.roles.length) {
+        store.dispatch('user/GetInfo').then(res => {
+          loadMenus(next, to)
+        })
+      } else if (store.getters.loadMenus) {
+        store.dispatch('user/updateLoadMenus')
+        loadMenus(next, to)
+      } else {
+        next()
+      }
     }
   } else {
     if (whiteList.indexOf(to.path) !== -1) {
       next()
     } else {
-      next(`/login/redirect=${to.fullPath}`)
+      next(`/login?redirect=${to.fullPath}`)
       NProgress.done()
     }
   }
 })
 export const loadMenus = (next, to) => {
   buildMenus().then(res => {
-    const sdata = JSON.parse(JSON.stringify(res))
-    const rdata = JSON.parse(JSON.stringify(res))
-    const sidebarRoutes = filterAsyncRouter(sdata)
-    const rewriteRoutes = filterAsyncRouter(rdata, false, true)
-    rewriteRoutes.push({ path: '*', redirect: '/404', hidden: true })
+    const rewriteRoutes = filterAsyncRouter(res, false, true)
     store.dispatch('permission/GenerateRoutes', rewriteRoutes).then(() => {
-      router.addRoutes(rewriteRoutes)
+      rewriteRoutes.push({ path: '*', redirect: '/404', hidden: true })
+      router.matcher.addRoutes(rewriteRoutes)
       next({ ...to, replace: true })
     })
-    store.dispatch('permission/SetSidebarRouters', sidebarRoutes)
   })
 }
 router.afterEach(() => {

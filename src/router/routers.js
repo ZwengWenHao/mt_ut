@@ -41,12 +41,12 @@ export const constantRouterMap = [
                 meta: { title: '首页' }
             }
         ]
-    }
+    },
 ]
 
 const createRouter = new Router({
-    // mode: 'hash',
-    mode: 'history',
+    mode: 'hash',
+    // mode: 'history',
     scrollBehavior: () => ({ y: 0 }),
     routes: constantRouterMap
 })

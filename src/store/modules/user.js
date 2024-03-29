@@ -1,12 +1,13 @@
 import { Local } from '@/utils/storage'
 import router, { resetRouter } from '@/router/index'
-import { login } from '@/api/login'
+import { login, getInfo } from '@/api/login'
 import { setToken, getToken } from '@/utils/auth'
 const state = {
     permission: [],
     roles: [],
     token: getToken(),
-    user: {}
+    user: {},
+    loadMenus: false,
 }
 const getters = {
     permission(state) {
@@ -25,6 +26,9 @@ const mutations = {
     },
     SET_USER(state, user) {
         state.user = user
+    },
+    SET_LOAD_MENUS(state, type) {
+        state.loadMenus = type
     }
 }
 const actions = {
@@ -39,10 +43,26 @@ const actions = {
                 setToken(token, userInfo.rememberMe)
                 commit('SET_TOKEN', token)
                 setUserInfo(user, commit)
+                commit('SET_LOAD_MENUS', true)
                 resolve()
             }).catch(error => {
                 reject(error)
             })
+        })
+    },
+    GetInfo({ commit }) {
+        return new Promise((resolve, reject) => {
+            getInfo().then(res => {
+                setUserInfo(res, commit)
+                resolve(res)
+            }).catch(error => {
+                reject(error)
+            })
+        })
+    },
+    updateLoadMenus({ commit }) {
+        return new Promise((resolve, reject) => {
+            commit('SET_LOAD_MENUS', false)
         })
     }
 }

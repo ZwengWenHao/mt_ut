@@ -13,26 +13,26 @@
     "redirect": "noredirect",
     "children": [
       {
-        "component": "components-dome/json-editor",
+        "component": "video/index",
         "hidden": false,
         "meta": {
           "icon": "peoples",
           "noCache": true,
           "title": "用户管理"
         },
-        "name": "JsonEditor",
-        "path": "jsonEditor"
+        "name": "Video",
+        "path": "video"
       },
       {
-        "component": "system/role/index",
+        "component": "ganttChart/index",
         "hidden": false,
         "meta": {
-          "icon": "role",
+          "icon": "peoples",
           "noCache": true,
-          "title": "角色管理"
+          "title": "甘特图"
         },
-        "name": "Role",
-        "path": "role"
+        "name": "GanttChart",
+        "path": "ganttChart"
       }
     ]
   }

@@ -21,7 +21,8 @@ const actions = {
     },
     SetSidebarRouters({ commit }, sidebarRouter) {
         commit('SET_SIDEBAR_ROUTERS', sidebarRouter)
-    }
+    },
+
 }
 
 export const filterAsyncRouter = (routers, lastRouter = false, type = false) => {

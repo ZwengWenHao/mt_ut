@@ -11,7 +11,7 @@ module.exports = defineConfig({
   configureWebpack: {
     plugins: [
       new MonacoWebpackPlugin()
-    ]
+    ],
   },
   devServer: {
     port: port,

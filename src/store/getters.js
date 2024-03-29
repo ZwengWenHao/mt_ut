@@ -3,7 +3,9 @@ const getters = {
     token: state => state.user.token,
     user: state => state.user.user,
     sidebar: state => state.app.sidebar,
-    sidebarRouters:state => state.permission.sidebarRouters,
+    sidebarRouters: state => state.permission.sidebarRouters,
+    permission_routers: state => state.permission.routers,
+    loadMenus: state => state.user.loadMenus
 }
 
 export default getters

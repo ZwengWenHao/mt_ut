@@ -1,6 +1,8 @@
 <template>
   <section class="app_main">
-    main
+    <keep-alive>
+      <router-view :key="key" />
+    </keep-alive>
   </section>
 </template>
 
@@ -11,7 +13,9 @@ export default {
     return {};
   },
   computed: {
-   
+    key() {
+      return this.$route.path;
+    },
   },
   created() {},
   mounted() {},

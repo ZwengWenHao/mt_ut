@@ -1,6 +1,6 @@
 <template>
   <div :class="['sidebar', { 'has-logo': isLogo }]">
-    <Logo v-if="isLogo" :collapse="collapse" />
+    <Logo v-if="isLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar_wrap">
       <el-menu
         :default-active="activeMenu"
@@ -12,7 +12,12 @@
         unique-opened
         mode="vertical"
       >
-      <SidebarItem v-for="item in sidebarRouters" :key="item.path" :item="item" :base-path="item.path"></SidebarItem>
+        <SidebarItem
+          v-for="item in permission_routers"
+          :key="item.path"
+          :item="item"
+          :base-path="item.path"
+        ></SidebarItem>
       </el-menu>
     </el-scrollbar>
   </div>
@@ -27,11 +32,19 @@ export default {
     Logo,
     SidebarItem,
   },
+  watch: {
+    $route(route) {
+      if (route.path.startsWith("/redirect/")) {
+        return;
+      }
+      this.getBreadcrumb();
+    },
+  },
   computed: {
     ...mapState({
       isLogo: (state) => state.settings.sidebarLogo,
     }),
-    ...mapGetters(["sidebar", "sidebarRouters"]),
+    ...mapGetters(["sidebar", "sidebarRouters", "permission_routers"]),
     activeMenu() {
       const route = this.$route;
       const { meta, path } = route;
@@ -44,7 +57,29 @@ export default {
       return true;
     },
     isCollapse() {
-      return this.sidebar.opened;
+      return !this.sidebar.opened;
+    },
+  },
+  methods: {
+    getBreadcrumb() {
+      let matched = this.$route.matched.filter(
+        (item) => item.meta && item.meta.title
+      );
+      const first = matched[0];
+      if (!this.isDashboard(first)) {
+        matched = [{ path: "/dashboard", meta: { title: "首页" } }].concat(
+          matched
+        );
+      }
+    },
+    isDashboard(route) {
+      const name = route && route.name;
+      if (!name) {
+        return false;
+      }
+      return (
+        name.trim().toLocaleLowerCase() === "Dashboard".toLocaleLowerCase()
+      );
     },
   },
 };
@@ -52,7 +87,7 @@ export default {
 
 <style lang="scss">
 .sidebar {
-  width: 205px;
+  width: 250px;
   background: #293a4b;
 }
 
