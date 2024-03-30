@@ -26,3 +26,10 @@ export function getInfo() {
         method: 'get'
     })
 }
+
+export function logout() {
+    return request({
+        url: 'auth/logout',
+        method: 'delete'
+    })
+}

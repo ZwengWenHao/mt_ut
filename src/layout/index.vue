@@ -1,7 +1,7 @@
 <template>
-  <div class="app_wrap">
-    <Sidebar class="sidebar_container"></Sidebar>
-    <div class="main_container">
+  <div :class="classObj" class="app_wrap">
+    <Sidebar class="sidebar-container"></Sidebar>
+    <div :class="['main_container', { hideSidebar: sidebar.opened }]">
       <Navbar />
       <TagsView />
       <AppMain></AppMain>
@@ -18,7 +18,16 @@ export default {
     Sidebar,
     AppMain,
     TagsView,
-    Navbar
+    Navbar,
+  },
+  computed: {
+    ...mapGetters(["sidebar"]),
+    classObj() {
+      return {
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+      };
+    },
   },
   data() {
     return {};
@@ -35,5 +44,13 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+.hideSidebar {
+  .sidebar-container {
+    width: 54px !important;
+  }
+  .main-container {
+    margin-left: 54px !important;
+  }
 }
 </style>

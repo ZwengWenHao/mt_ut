@@ -1,6 +1,6 @@
 <template>
-  <div class="timeline">
-    timeline
+  <div class="table_wrap">
+    table
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 import { Local } from '@/utils/storage'
 import router, { resetRouter } from '@/router/index'
-import { login, getInfo } from '@/api/login'
-import { setToken, getToken } from '@/utils/auth'
+import { login, getInfo, logout } from '@/api/login'
+import { setToken, getToken, removeToken } from '@/utils/auth'
 const state = {
     permission: [],
     roles: [],
@@ -60,11 +60,27 @@ const actions = {
             })
         })
     },
+    // 退出登录 不管成功失败 重置缓存
+    LogOut({ commit }) {
+        return new Promise((resolve, reject) => {
+            logout().then(res => {
+                logOut(commit)
+                resolve()
+            }).catch(error => {
+                logOut(commit)
+                reject(error)
+            })
+        })
+    },
     updateLoadMenus({ commit }) {
         return new Promise((resolve, reject) => {
             commit('SET_LOAD_MENUS', false)
         })
     }
+}
+function logOut(commit) {
+    commit('SET_TOKEN', '')
+    removeToken()
 }
 export const setUserInfo = ({ roles, user }, commit) => {
     if (!roles.length) {

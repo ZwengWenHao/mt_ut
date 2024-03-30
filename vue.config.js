@@ -1,14 +1,15 @@
 const { defineConfig } = require('@vue/cli-service')
+const defaultSettings = require('./src/settings.js')
 const path = require('path')
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const port = 8013
-console.log('process.env.VUE_BASE_API', process.env.VUE_BASE_API)
 module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
+    name:defaultSettings.title,
     plugins: [
       new MonacoWebpackPlugin()
     ],

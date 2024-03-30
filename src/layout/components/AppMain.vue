@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss">
 .app_main {
-  min-height: calc(100vh - 84px);
+  min-height: calc(100vh - 85px);
   background: #eceff2;
 }
 </style>

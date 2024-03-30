@@ -4,35 +4,61 @@
     "component": "Layout",
     "hidden": false,
     "meta": {
-      "icon": "system",
+      "icon": "time",
       "noCache": true,
-      "title": "系统管理"
+      "title": "时间轴"
     },
-    "name": "系统管理",
+    "name": "时间轴组件",
     "path": "/system",
     "redirect": "noredirect",
     "children": [
       {
-        "component": "video/index",
+        "component": "timeline/timeline",
         "hidden": false,
         "meta": {
-          "icon": "peoples",
+          "icon": "",
           "noCache": true,
-          "title": "用户管理"
+          "title": "横向时间轴"
         },
-        "name": "Video",
-        "path": "video"
+        "name": "Timeline",
+        "path": "timeline"
       },
       {
         "component": "ganttChart/index",
-        "hidden": false,
+        "hidden": "",
         "meta": {
-          "icon": "peoples",
+          "icon": "",
           "noCache": true,
           "title": "甘特图"
         },
         "name": "GanttChart",
         "path": "ganttChart"
+      }
+    ]
+  },
+  {
+    "alwaysShow": true,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "table",
+      "noCache": true,
+      "title": "表格管理"
+    },
+    "name": "表格管理",
+    "path": "/table",
+    "redirect": "noredirect",
+    "children": [
+      {
+        "component": "table/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "表格管理"
+        },
+        "name": "Table",
+        "path": "table"
       }
     ]
   }

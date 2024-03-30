@@ -5,7 +5,8 @@ const getters = {
     sidebar: state => state.app.sidebar,
     sidebarRouters: state => state.permission.sidebarRouters,
     permission_routers: state => state.permission.routers,
-    loadMenus: state => state.user.loadMenus
+    loadMenus: state => state.user.loadMenus,
+    visitedViews:state => state.tagsView.visitedViews,
 }
 
 export default getters
