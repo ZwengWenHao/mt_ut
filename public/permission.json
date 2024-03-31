@@ -4,6 +4,84 @@
     "component": "Layout",
     "hidden": false,
     "meta": {
+      "icon": "table",
+      "noCache": true,
+      "title": "表格管理"
+    },
+    "name": "表格管理",
+    "path": "/table",
+    "redirect": "noredirect",
+    "children": [
+      {
+        "component": "table/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "表格管理"
+        },
+        "name": "Table",
+        "path": "table"
+      }
+    ]
+  },
+  {
+    "alwaysShow": true,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "dialog",
+      "noCache": true,
+      "title": "弹窗组件"
+    },
+    "name": "弹窗组件",
+    "path": "/dialog",
+    "redirect": "noredirect",
+    "children": [
+      {
+        "component": "dialog/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "可拖动的弹窗"
+        },
+        "name": "dialog",
+        "path": "dialog"
+      }
+    ]
+  },
+  {
+    "alwaysShow": true,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "select",
+      "noCache": true,
+      "title": "下拉选择器"
+    },
+    "name": "选择器",
+    "path": "/select",
+    "redirect": "noredirect",
+    "children": [
+      {
+        "component": "select/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "选择器"
+        },
+        "name": "dialog",
+        "path": "dialog"
+      }
+    ]
+  },
+  {
+    "alwaysShow": true,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
       "icon": "time",
       "noCache": true,
       "title": "时间轴"
@@ -35,31 +113,6 @@
         "path": "ganttChart"
       }
     ]
-  },
-  {
-    "alwaysShow": true,
-    "component": "Layout",
-    "hidden": false,
-    "meta": {
-      "icon": "table",
-      "noCache": true,
-      "title": "表格管理"
-    },
-    "name": "表格管理",
-    "path": "/table",
-    "redirect": "noredirect",
-    "children": [
-      {
-        "component": "table/index",
-        "hidden": false,
-        "meta": {
-          "icon": "",
-          "noCache": true,
-          "title": "表格管理"
-        },
-        "name": "Table",
-        "path": "table"
-      }
-    ]
   }
+
 ]

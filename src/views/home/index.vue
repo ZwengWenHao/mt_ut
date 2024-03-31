@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <PanelGroup></PanelGroup>
-    <LineChart></LineChart>
+    <LineChart ref="lineChart"></LineChart>
   </div>
 </template>
 
@@ -16,5 +16,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

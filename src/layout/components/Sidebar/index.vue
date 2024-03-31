@@ -1,5 +1,5 @@
 <template>
-  <div :class="['sidebar', { 'has-logo': isLogo }]">
+  <div :class="{ 'has-logo': isLogo }">
     <Logo v-if="isLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar_wrap">
       <el-menu
@@ -86,11 +86,6 @@ export default {
 </script>
 
 <style lang="scss">
-.sidebar {
-  width: 250px;
-  background: #293a4b;
-}
-
 .scrollbar_wrap {
   overflow-x: hidden !important;
 }

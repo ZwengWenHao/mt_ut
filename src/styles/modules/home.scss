@@ -1,0 +1,97 @@
+.home {
+  background: #eceff2;
+  padding: 2px 5px;
+  @include h;
+  .panel_group {
+    padding: 3px 0;
+    .el-alert {
+      .el-alert__content {
+        flex: 1;
+      }
+      background: #fffffe !important;
+      .el-alert__description {
+        text-indent: 5px;
+        background-image: -webkit-linear-gradient(
+          bottom,
+          #fd8403,
+          #4f34d2,
+          #ea3c34
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 5px 0 !important;
+        font-size: 16px;
+      }
+    }
+    .daily_card {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 40%;
+        height: 100%;
+      }
+    }
+  }
+  .line_chart {
+    display: flex;
+    flex-direction: column;
+    .panel-group {
+      .card-panel {
+        height: 108px;
+        cursor: pointer;
+        font-size: 12px;
+        position: relative;
+        overflow: hidden;
+        color: #666;
+        background: #fff;
+        box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.05);
+      }
+      .card-panel-col {
+        .card-panel-col-item {
+          width: 100%;
+          border: 1px solid #e3e8f7;
+          background: #ffffff;
+          border-radius: 12px;
+          margin-bottom: 3px;
+          display: flex;
+          .col-item-name {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+            width: calc(100% - 100px);
+            .title {
+              font-size: 19px;
+              font-weight: 700;
+              width: 100%;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+            .name {
+              margin-top: 10px;
+              width: 100%;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          }
+          .col-item-icon {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            min-height: 60px;
+            border-radius: 32px;
+            transition: 0.3s;
+            margin: 20px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .lineBarChart {
+      height: 500px;
+    }
+  }
+}

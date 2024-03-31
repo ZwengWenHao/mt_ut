@@ -24,6 +24,9 @@ const mutations = {
                 break
             }
         }
+    },
+    DEL_OTHERS_VISITED_VIEWS(state, view) {
+        state.visitedViews = state.visitedViews.filter(v => v.meta.affix || view.path === v.path)
     }
 }
 const actions = {
@@ -41,6 +44,17 @@ const actions = {
             resolve({
                 visitedViews: [...state.visitedViews]
             })
+        })
+    },
+    // 关闭其他
+    delOthersViews({ dispatch }, view) {
+        return new Promise((resolve, reject) => {
+            dispatch('delOthersVisitedViews', view)
+        })
+    },
+    delOthersVisitedViews({ commit }, view) {
+        return new Promise((resolve, reject) => {
+            commit('DEL_OTHERS_VISITED_VIEWS', view)
         })
     },
     delVisitedView({ commit }, view) {

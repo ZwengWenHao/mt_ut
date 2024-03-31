@@ -1,3 +1,15 @@
 @import "./main.scss";
-@import './variables.scss';
-@import './sidebar.scss'
+@import "./variables.scss";
+@import "./sidebar.scss";
+@import "./mixin.scss";
+@import "./modules/home.scss";
+
+.spread {
+  @include spread;
+}
+.p_tb5 {
+  padding: 5px 0;
+}
+.r4 {
+  @include r4;
+}

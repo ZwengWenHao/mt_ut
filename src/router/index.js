@@ -15,7 +15,6 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
-      console.log('ppp');
       if (!store.getters.roles.length) {
         store.dispatch('user/GetInfo').then(res => {
           loadMenus(next, to)

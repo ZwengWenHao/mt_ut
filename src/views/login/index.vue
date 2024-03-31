@@ -169,8 +169,8 @@ export default {
     text-align: center;
   }
   &_box {
-    width: 50%;
-    height: 30%;
+    width: 40%;
+    height: 40%;
     position: absolute;
     inset: 0;
     margin: auto;

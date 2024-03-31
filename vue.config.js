@@ -38,7 +38,21 @@ module.exports = defineConfig({
         pathRewrite: {
           '^/auth': 'auth'
         }
-      }
+      },
+      '/home': {
+        target: 'https://api.52vmy.cn/api',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/home': ''
+        }
+      },
+      '/text': {
+        target: 'https://api.nnxv.cn/api',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/text': ''
+        }
+      },
     },
   },
   chainWebpack(config) {

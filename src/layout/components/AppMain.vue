@@ -1,8 +1,9 @@
 <template>
   <section class="app_main">
-    <keep-alive>
+    <!-- <keep-alive>
       <router-view :key="key" />
-    </keep-alive>
+    </keep-alive> -->
+    <router-view :key="key" />
   </section>
 </template>
 
@@ -25,7 +26,10 @@ export default {
 
 <style lang="scss">
 .app_main {
-  min-height: calc(100vh - 85px);
-  background: #eceff2;
+  // min-height: calc(100vh - 85px);
+  min-height: 100vh;
+  padding-top: 84px;
+  overflow: hidden;
+  position: relative;
 }
 </style>

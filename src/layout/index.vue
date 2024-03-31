@@ -1,10 +1,12 @@
 <template>
   <div :class="classObj" class="app_wrap">
     <Sidebar class="sidebar-container"></Sidebar>
-    <div :class="['main_container', { hideSidebar: sidebar.opened }]">
-      <Navbar />
-      <TagsView />
-      <AppMain></AppMain>
+    <div :class="['main_container', sidebar.opened ? 'hideSidebar' : '']">
+      <div class="fixed-header" :style="{width:headerWidth}">
+        <Navbar />
+        <TagsView />
+      </div>
+      <AppMain />
     </div>
   </div>
 </template>
@@ -28,6 +30,9 @@ export default {
         openSidebar: this.sidebar.opened,
       };
     },
+    headerWidth(){
+      return !this.sidebar.opened?'calc(100% - 54px)':'calc(100% - 250px)'
+    }
   },
   data() {
     return {};
@@ -35,22 +40,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.app_wrap {
-  display: flex;
-}
-
-.main_container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.hideSidebar {
-  .sidebar-container {
-    width: 54px !important;
-  }
-  .main-container {
-    margin-left: 54px !important;
-  }
+<style lang="scss" scoped>
+@import "~@/styles/variables.scss";
+.fixed-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  transition: width 0.28s;
+  background: #fff;
 }
 </style>

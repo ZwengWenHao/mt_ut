@@ -6,9 +6,9 @@
         ref="tag"
         :key="tag.path"
         :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
-        tag="span"
-        @click.middle.native="closeSelectedTag(tag)"
         :class="['tags-view-item', { active: isActive(tag) }]"
+        @click.middle.native="closeSelectedTag(tag)"
+        @contextmenu.prevent.native="openMenu(tag, $event)"
       >
         {{ tag.title }}
         <span
@@ -18,6 +18,19 @@
         />
       </router-link>
     </scroll-pane>
+    <ul
+      v-show="visible"
+      :style="{ left: left + 'px', top: top + 'px' }"
+      class="contextmenu"
+    >
+      <li
+        v-for="item in contextmenu"
+        :key="item.value"
+        @click="handleContextmenu(item.value)"
+      >
+        {{ item.lable }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -30,6 +43,24 @@ export default {
   data() {
     return {
       arrfixTags: [],
+      visible: false,
+      top: 0,
+      left: 0,
+      selectedTag: {},
+      contextmenu: [
+        {
+          value: "closeSelectedTag",
+          lable: "关闭",
+        },
+        {
+          value: "closeOthersTags",
+          lable: "关闭其他",
+        },
+        {
+          value: "closeAllTags",
+          lable: "关闭全部",
+        },
+      ],
     };
   },
   computed: {
@@ -40,9 +71,17 @@ export default {
       this.addTags();
       this.moveToCurrentTag();
     },
+    visible(value) {
+      if (value) {
+        document.body.addEventListener("click", this.closeMenu);
+      } else {
+        document.body.removeEventListener("click", this.closeMenu);
+      }
+    },
   },
   mounted() {
     this.initTags();
+    this.addTags();
   },
   methods: {
     ...mapActions({
@@ -50,6 +89,7 @@ export default {
       addView: "tagsView/addView",
       delView: "tagsView/delView",
       updateVisitedView: "tagsView/updateVisitedView",
+      delOthersViews: "tagsView/delOthersViews",
     }),
     isActive(route) {
       return route.path === this.$route.path;
@@ -112,6 +152,15 @@ export default {
         }
       });
     },
+    // 关闭其他
+    closeOthersTags(tag) {
+      // 由于 vue-router3.0 及以上版本回调形式改成Promise API的形式
+      // this.$router.push(tag) 会报重复跳转的错误
+      this.$router.push(tag, () => {});
+      this.delOthersViews(this.selectedTag).then((_) => {
+        this.moveToCurrentTag();
+      });
+    },
     toLastView(visitedViews, view) {
       // 如果删除的是当前选中的tag 那么删除后就选中当前tag删除前的tag状态
       const latestView = visitedViews.slice(-1)[0];
@@ -124,6 +173,28 @@ export default {
           this.$router.push("/");
         }
       }
+    },
+    openMenu(tag, e) {
+      const menuMinWidth = 105;
+      const offsetLeft = this.$el.getBoundingClientRect().left;
+      const offsetWidth = this.$el.offsetWidth;
+      const maxLeft = offsetWidth - menuMinWidth;
+      const left = e.clientX - offsetLeft + 15;
+      if (left > maxLeft) {
+        this.left = maxLeft;
+      } else {
+        this.left = left;
+      }
+      this.top = e.clientY;
+      this.visible = true;
+      this.selectedTag = tag;
+    },
+    handleContextmenu(v) {
+      if (!this.selectedTag.meta.affix && v && typeof this[v] === "function")
+        return this[v](this.selectedTag);
+    },
+    closeMenu() {
+      this.visible = false;
     },
   },
 };
@@ -170,6 +241,27 @@ export default {
           position: relative;
           margin-right: 2px;
         }
+      }
+    }
+  }
+  .contextmenu {
+    margin: 0;
+    background: #fff;
+    z-index: 3000;
+    position: absolute;
+    list-style-type: none;
+    padding: 5px 0;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
+    li {
+      margin: 0;
+      padding: 7px 16px;
+      cursor: pointer;
+      &:hover {
+        background: #eee;
       }
     }
   }

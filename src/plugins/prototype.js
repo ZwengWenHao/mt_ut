@@ -8,3 +8,10 @@ Vue.prototype.$video = Video
 
 import qs from 'qs'
 Vue.prototype.$qs = qs
+
+import moment from 'moment';
+Vue.prototype.$moment = moment
+
+import * as echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
