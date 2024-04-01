@@ -3,8 +3,9 @@ import Config from '@/settings'
 import { Notification } from 'element-ui'
 import { getToken } from '@/utils/auth'
 
+// process.env.NODE_ENV.VUE_APP_BASE_API
 const service = axios.create({
-    baseURL: process.env.NODE_ENV == 'production' ? window.SITE_CONFIG['VUE_APP_BASE_API'] : '/',
+    baseURL: '/',
     timeout: Config.timeOut
 })
 

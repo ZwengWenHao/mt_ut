@@ -12,7 +12,7 @@ import axios from 'axios'
 //     })
 // }
 export async function getCodeImg() {
-    const res = await axios({ url: '/mock/code.json', method: 'get' })
+    const res = await axios({ url: '/element-admin/mock/code.json', method: 'get' })
     return res.data
 }
 
@@ -25,7 +25,7 @@ export async function getCodeImg() {
 // }
 
 export async function login() {
-    const res = await axios({ url: '/mock/login.json', method: 'get' })
+    const res = await axios({ url: '/element-admin/mock/login.json', method: 'get' })
     return res.data
 }
 
@@ -38,13 +38,19 @@ export async function login() {
 // }
 
 export async function getInfo() {
-    const res = await axios({ url: '/mock/info.json', method: 'get' })
+    const res = await axios({ url: '/element-admin/mock/info.json', method: 'get' })
     return res.data
 }
 
-export function logout() {
-    return request({
-        url: 'auth/logout',
-        method: 'delete'
-    })
+// export function logout() {
+//     return request({
+//         url: 'auth/logout',
+//         method: 'delete'
+//     })
+// }
+
+export async function logout() {
+    const res = await axios({ url: '/element-admin/mock/logout.json', method: 'get' })
+    return res.data
+
 }

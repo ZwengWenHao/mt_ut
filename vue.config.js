@@ -8,7 +8,7 @@ const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin')
 const port = 8013
 module.exports = defineConfig({
-  publicPath: process.env.NODE_ENV == 'production' ? '/componetns-admin/' : '/',
+  publicPath: '/element-admin/',
   outputDir: 'dist',
   assetsDir: 'static',
   transpileDependencies: true,
