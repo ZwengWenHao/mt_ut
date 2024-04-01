@@ -46,8 +46,8 @@
           "noCache": true,
           "title": "可拖动的弹窗"
         },
-        "name": "dialog",
-        "path": "dialog"
+        "name": "DragDialog",
+        "path": "dragDialog"
       }
     ]
   },
@@ -72,8 +72,8 @@
           "noCache": true,
           "title": "选择器"
         },
-        "name": "dialog",
-        "path": "dialog"
+        "name": "Select",
+        "path": "select"
       }
     ]
   },

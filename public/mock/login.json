@@ -1,0 +1,47 @@
+{
+  "user": {
+    "authorities": [
+      {
+        "authority": "admin"
+      }
+    ],
+    "dataScopes": [],
+    "roles": ["admin"],
+    "user": {
+      "avatarName": "avatar.jpeg",
+      "avatarPath": "/home/eladmin/avatar/avatar.jpeg",
+      "createTime": "2018-08-23 09:11:56",
+      "dept": {
+        "id": 2,
+        "name": "研发部"
+      },
+      "email": "admin@el-admin.vip",
+      "enabled": true,
+      "gender": "男",
+      "id": 1,
+      "isAdmin": true,
+      "jobs": [
+        {
+          "id": 11,
+          "name": "全栈开发"
+        }
+      ],
+      "nickName": "管理员",
+      "password": "$2a$10$Egp1/gvFlt7zhlXVfEFw4OfWQCGPw0ClmMcc6FjTnvXNRVf9zdMRa",
+      "phone": "18888888888",
+      "pwdResetTime": "2020-05-03 16:38:31",
+      "roles": [
+        {
+          "dataScope": "全部",
+          "id": 1,
+          "level": 1,
+          "name": "超级管理员"
+        }
+      ],
+      "updateBy": "admin",
+      "updateTime": "2020-09-05 10:43:31",
+      "username": "admin"
+    }
+  },
+  "token": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI5NDE4YTc1NTA0N2Y0MjNkYWViOGNmZTZiNjJhZDM3OSIsInVzZXIiOiJhZG1pbiIsInN1YiI6ImFkbWluIn0.ADlXsPYaZ3tutQ-Xi2dJL9aBpmTlJ4IK4Hns35y6bWDNu5iW32nlW8q-pDrTxNPkUfHbMwk9LiiGmebce2ouTw"
+}

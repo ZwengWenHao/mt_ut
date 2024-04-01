@@ -1,19 +1,19 @@
 import axios from "axios";
 import Config from '@/settings'
 import { Notification } from 'element-ui'
-import {getToken} from '@/utils/auth'
+import { getToken } from '@/utils/auth'
 
 const service = axios.create({
-    baseURL: process.env.NODE_ENV == 'production' ? process.env.VUE_BASE_API : '/',
+    baseURL: process.env.NODE_ENV == 'production' ? window.SITE_CONFIG['VUE_APP_BASE_API'] : '/',
     timeout: Config.timeOut
 })
 
 service.interceptors.request.use(config => {
     if (getToken()) {
         config.headers['Authorization'] = getToken()
-      }
-      config.headers['Content-Type'] = 'application/json'
-      return config
+    }
+    config.headers['Content-Type'] = 'application/json'
+    return config
 }, error => {
     Promise.reject(error)
 })

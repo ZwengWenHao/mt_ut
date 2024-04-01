@@ -1,5 +1,5 @@
 import { Local } from '@/utils/storage'
-import router, { resetRouter } from '@/router/index'
+import router from '@/router/index'
 import { login, getInfo, logout } from '@/api/login'
 import { setToken, getToken, removeToken } from '@/utils/auth'
 const state = {
@@ -34,25 +34,26 @@ const mutations = {
 const actions = {
     changeRoles({ commit, state }) {
         commit('permission')
-        router.addRoutes(state.permission)
+        router.matcher.addRoutes(state.permission)
     },
     Login({ commit }, userInfo) {
-        return new Promise((resolve, reject) => {
-            login({ ...userInfo }).then(res => {
-                const { token, user } = res
+        return new Promise(async (resolve, reject) => {
+            try {
+                const { token, user } = await login({ ...userInfo })
                 setToken(token, userInfo.rememberMe)
                 commit('SET_TOKEN', token)
                 setUserInfo(user, commit)
                 commit('SET_LOAD_MENUS', true)
                 resolve()
-            }).catch(error => {
+            } catch (error) {
                 reject(error)
-            })
+            }
         })
     },
     GetInfo({ commit }) {
         return new Promise((resolve, reject) => {
             getInfo().then(res => {
+                console.log('res.data');
                 setUserInfo(res, commit)
                 resolve(res)
             }).catch(error => {

@@ -18,7 +18,7 @@ export default {
   methods: {
     async oneWordPerDay() {
       const { data } = await axios({
-        url: "/text/yiyan.php",
+        url: process.env.NODE_ENV == 'production'?window.SITE_CONFIG['VUE_APP_BASE_API_yiyan']:"/text/yiyan.php",
       });
       this.rerDayContent = data;
     },

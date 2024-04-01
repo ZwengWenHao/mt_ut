@@ -131,11 +131,9 @@ export default {
           }
           this.Login(user)
             .then((_) => {
-              console.log("ok");
               this.$router.push({ path: "/" || "/" });
             })
             .catch((error) => {
-              console.log("112", error);
               this.codeImage();
             });
         } else {

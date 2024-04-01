@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
       if (!store.getters.roles.length) {
         store.dispatch('user/GetInfo').then(res => {
           loadMenus(next, to)
-        }).catch(_=>{
+        }).catch(_ => {
           store.dispatch('user/LogOut')
         })
       } else if (store.getters.loadMenus) {
@@ -50,3 +50,7 @@ export const loadMenus = (next, to) => {
 router.afterEach(() => {
   NProgress.done()
 })
+
+
+
+export default router
