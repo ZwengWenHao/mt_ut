@@ -5,3 +5,6 @@ comp.forEach(item => {
         Vue.component(item.compnent.name, item.compnent)
     }
 })
+// 分割面板
+import splitPane from 'vue-splitpane'
+Vue.component('SplitPane', splitPane);

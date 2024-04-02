@@ -15,6 +15,7 @@
 
 <script>
 import img from "@/assets/logo.png";
+import settings from "@/settings";
 export default {
     props: {
         collapse: {
@@ -22,9 +23,13 @@ export default {
             default: true,
         },
     },
+    computed:{
+        title(){
+            return settings.title
+        }
+    },
     data() {
         return {
-            title: "这是测试名称",
             img: img,
         };
     },

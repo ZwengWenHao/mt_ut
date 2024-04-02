@@ -113,6 +113,31 @@
         "path": "ganttChart"
       }
     ]
+  },
+  {
+    "alwaysShow": true,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "select",
+      "noCache": true,
+      "title": "组件库"
+    },
+    "name": "组件库",
+    "path": "/components",
+    "redirect": "noredirect",
+    "children": [
+      {
+        "component": "components/splitPane",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "可拖动面板"
+        },
+        "name": "SplitPane",
+        "path": "splitPane"
+      }
+    ]
   }
-
 ]

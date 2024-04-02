@@ -2,7 +2,7 @@
   <div :class="classObj" class="app_wrap">
     <Sidebar class="sidebar-container"></Sidebar>
     <div :class="['main_container', sidebar.opened ? 'hideSidebar' : '']">
-      <div class="fixed-header" :style="{width:headerWidth}">
+      <div class="fixed-header" :style="{ width: headerWidth }">
         <Navbar />
         <TagsView />
       </div>
@@ -12,8 +12,9 @@
 </template>
 
 <script>
+import ResizeHandler from './mixin/ResizeHandler'
 import { Local } from "@/utils/storage";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import { Sidebar, AppMain, TagsView, Navbar } from "./components";
 export default {
   components: {
@@ -22,21 +23,26 @@ export default {
     TagsView,
     Navbar,
   },
+  mixins:[ResizeHandler],
   computed: {
-    ...mapGetters(["sidebar"]),
+    ...mapGetters(["sidebar",'device']),
     classObj() {
       return {
         hideSidebar: !this.sidebar.opened,
         openSidebar: this.sidebar.opened,
       };
     },
-    headerWidth(){
-      return !this.sidebar.opened?'calc(100% - 54px)':'calc(100% - 250px)'
-    }
+    headerWidth() {
+      return !this.sidebar.opened ? "calc(100% - 54px)" : "calc(100% - 250px)";
+    },
   },
-  data() {
-    return {};
-  },
+  methods:{
+    ...mapActions({
+      closeSideBar:'app/closeSideBar',
+      toggleDevice:'app/toggleDevice',
+      showSideBar:'app/showSideBar'
+    })
+  }
 };
 </script>
 

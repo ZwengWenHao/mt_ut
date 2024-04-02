@@ -53,7 +53,6 @@ const actions = {
     GetInfo({ commit }) {
         return new Promise((resolve, reject) => {
             getInfo().then(res => {
-                console.log('res.data');
                 setUserInfo(res, commit)
                 resolve(res)
             }).catch(error => {
