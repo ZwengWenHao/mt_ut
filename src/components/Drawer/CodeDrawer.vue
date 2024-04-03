@@ -4,7 +4,7 @@
     :visible.sync="drawer"
     :direction="direction"
     :before-close="handleClose"
-    size="50%"
+    size="45%"
     :withHeader="false"
   >
     <ExplainText :is_copy="false" :code="description"></ExplainText>

@@ -1,6 +1,8 @@
 <template>
   <el-collapse>
-    <CollapseItem v-bind="$attrs"></CollapseItem>
+    <CollapseItem v-bind="$attrs">
+      <slot></slot>
+    </CollapseItem>
   </el-collapse>
 </template>
 
@@ -12,5 +14,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.el-collapse {
+  border: none;
+  .el-collapse-item__header {
+    padding: 10px;
+  }
+  .el-collapse-item__content {
+    padding-bottom: 0;
+  }
+}
 </style>

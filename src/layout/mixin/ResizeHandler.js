@@ -36,8 +36,6 @@ export default {
                 this.toggleDevice(isMobile ? 'mobile' : 'desktop')
                 if (isMobile) {
                     this.closeSideBar({ withoutAnimation: true })
-                } else {
-                    this.showSideBar({ withoutAnimation: false })
                 }
             }
         }

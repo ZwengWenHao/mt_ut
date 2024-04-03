@@ -84,7 +84,7 @@ function copyByInput(text) {
 }
 function cpTextShowTip() {
     const eleTip = document.createElement('span');
-    eleTip.innerHTML = '复制成功 ~ ';
+    eleTip.innerHTML = '复制成功 ~ 🐮🐮 ';
     eleTip.style.cssText =
         'z-index:3333;position:absolute;top:40%;left:45%;padding:6px 12px;background-color:#333;color:#fff;font-size:14px;border-radius:6px;font-family:sans-serif;';
     document.body.appendChild(eleTip);

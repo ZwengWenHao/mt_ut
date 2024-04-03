@@ -1,25 +1,29 @@
 <!-- https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE -->
 <template>
   <div :class="['prism_container', !is_copy ? 'prism_container_is_copy' : '']">
-    <prism-editor
+    <PrismEditor
       class="prism_editor"
       v-model="codeText"
       :highlight="highlighter"
       :line-numbers="lineNumbers"
     />
-    <el-button
-      v-if="is_copy"
-      class="prism_editor_copy_btn"
-      plain
-      icon="el-icon-copy-document"
-      @click="copyTextClipboard({ copyText: codeText })"
-      >Copy</el-button
-    >
+    <TooltipText content="复制">
+      <el-button
+        v-if="is_copy"
+        class="prism_editor_copy_btn"
+        plain
+        icon="el-icon-copy-document"
+        @click="copyTextClipboard({ copyText: codeText })"
+      ></el-button>
+    </TooltipText>
+    <div v-if="!is_copy" class="copy_code" @click="cpText(codeText)">
+      复制代码
+    </div>
   </div>
 </template>
 
 <script>
-import { copyTextClipboard } from "@/utils/clipboard";
+import { copyTextClipboard, cpText } from "@/utils/clipboard";
 import { PrismEditor } from "vue-prism-editor";
 import "vue-prism-editor/dist/prismeditor.min.css";
 
@@ -53,6 +57,7 @@ export default {
   }),
   methods: {
     copyTextClipboard,
+    cpText,
     highlighter(code) {
       return highlight(code, languages.js); // returns html
     },
@@ -67,6 +72,7 @@ export default {
   align-items: center;
   gap: 3px;
   margin: 5px 0;
+  position: relative;
   .prism_editor {
     background: #2d2d2d;
     color: #ccc;
@@ -88,8 +94,23 @@ export default {
     font-size: 25px;
     cursor: pointer;
   }
+  .copy_code {
+    position: absolute;
+    top: 0.8em;
+    right: 15px;
+    color: hsla(0, 0%, 54.9%, 0.8);
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .copy_code:hover {
+    color: #67686a;
+  }
 }
 .prism_container.prism_container_is_copy {
   margin: 5px !important;
+  .prism_editor {
+    padding: 1.25rem 1.5rem;
+  }
 }
 </style>

@@ -1,14 +1,13 @@
 <template>
   <div class="split_pane">
-    <CollapsePanel :title.sync="textDescription">
+    <CollapsePanel :collapseText="collapseText">
       <TextDescription @viewTutorial="viewTutorial">
         <ViewPath
           link="https://github.com/PanJiaChen/vue-split-pane"
         ></ViewPath>
       </TextDescription>
+      <ExplainText :code="codeText"></ExplainText>
     </CollapsePanel>
-
-    <ExplainText :code="codeText"></ExplainText>
     <SplitPane
       @resize="resize"
       :min-percent="20"
@@ -37,13 +36,15 @@
     <CodeDrawer ref="codeDrawer" :description="textDescription" />
   </div>
 </template>
-
-<script>
+  
+  <script>
+import { codeContent } from "./codeTemplate";
 export default {
   data() {
     return {
       codeText: "yarn add vue-splitpane ",
-      textDescription: "121",
+      textDescription: codeContent(),
+      collapseText: " Split-Pane组件，可以垂直或水平分割",
     };
   },
   methods: {
@@ -54,10 +55,10 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
+  
+  <style lang="scss" scoped>
 .split_pane {
-  height: 100vh;
+  height: calc(100vh - 84px);
   padding: 10px;
 
   .paneL {

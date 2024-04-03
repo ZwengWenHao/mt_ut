@@ -3,6 +3,7 @@
 @import "./sidebar.scss";
 @import "./mixin.scss";
 @import "./modules/home.scss";
+@import './modules/collapsePanel.scss';
 
 .spread {
   @include spread;

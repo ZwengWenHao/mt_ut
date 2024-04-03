@@ -1,11 +1,19 @@
 <template>
+  <!-- 文本说明  is--否显示操作按钮  -->
   <div class="text_description_wrap">
     <el-card class="text_description">
       <slot />
     </el-card>
-    <el-button class="text_description_btn" plain @click="viewTutorial"
-      >使用说明</el-button
-    >
+    <TooltipText content="使用">
+      <el-button
+        v-if="!$attrs.is"
+        class="text_description_btn"
+        plain
+        @click="viewTutorial"
+      >
+        <svg-icon icon-class="look"></svg-icon>
+      </el-button>
+    </TooltipText>
   </div>
 </template>
 
@@ -26,8 +34,9 @@ export default {
   align-items: center;
   gap: 3px;
   .text_description {
-    padding: 8px 10px;
+    padding: 6px 10px;
     flex: 1;
+    font-size: 15px;
     .el-card__body {
       padding: 0px;
     }
@@ -38,6 +47,8 @@ export default {
   .text_description_btn {
     padding: 10px 10px;
     height: auto;
+    font-size: 16px;
+    cursor: pointer;
   }
 }
 </style>
