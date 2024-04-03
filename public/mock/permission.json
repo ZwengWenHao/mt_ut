@@ -139,5 +139,18 @@
         "path": "splitPane"
       }
     ]
+  },
+  {
+    "alwaysShow": false,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "select",
+      "noCache": true,
+      "title": "空模版"
+    },
+    "name": "aemptyTemplate",
+    "path": "/AemptyTemplate",
+    "redirect": "noredirect"
   }
 ]
