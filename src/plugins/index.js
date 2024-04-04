@@ -7,4 +7,5 @@ Vue.use(ElementUI);
 import './component'
 import './prototype'
 import './styles'
+import './directive'
 

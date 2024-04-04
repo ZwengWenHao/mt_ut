@@ -146,11 +146,48 @@
     "hidden": false,
     "meta": {
       "icon": "select",
-      "noCache": false,
+      "noCache": true,
       "title": "空模版"
     },
     "name": "aemptyTemplate",
-    "path": "/AemptyTemplate",
-    "redirect": "noredirect"
+    "path": "/aemptyTemplate",
+    "children": [
+      {
+        "component": "aemptyTemplate/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "空模版"
+        },
+        "name": "AemptyTemplate",
+        "path": "index"
+      }
+    ]
+  },
+  {
+    "alwaysShow": false,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "select",
+      "noCache": true,
+      "title": "水印"
+    },
+    "name": "Watermark",
+    "path": "/watermark",
+    "children": [
+      {
+        "component": "watermark/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "水印"
+        },
+        "name": "Watermark",
+        "path": "index"
+      }
+    ]
   }
 ]

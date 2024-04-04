@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.global_container {
+  height: calc(100vh - 84px);
+}
+
 a:focus,
 a:active {
   outline: none;

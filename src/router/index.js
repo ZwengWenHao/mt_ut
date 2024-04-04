@@ -6,6 +6,22 @@ import { getToken } from '@/utils/auth.js'
 import { buildMenus } from '@/api/menus'
 import { filterAsyncRouter } from '@/store/modules/permission'
 
+router.afterEach((to) => {
+
+  let Watermark = window.watermark
+  if (!Watermark) {
+    Watermark = null
+    return
+  }
+  if (to.fullPath !== "watermark/index") {
+    Watermark.remove()
+  } else {
+    Watermark.set(
+      '第一行', '第二行', '第三行', '第二行'
+    )
+  }
+})
+
 NProgress.configure({ showSpinner: false })
 const whiteList = ['/login']
 router.beforeEach((to, from, next) => {
