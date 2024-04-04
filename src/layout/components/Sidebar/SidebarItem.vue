@@ -2,7 +2,9 @@
   <div v-if="!item.hidden" class="menu-wrapper">
     <template
       v-if="
-        hasOneShowingChild(item.children, item) &&(!onlyOneChild.children || onlyOneChild.noShowingChildren) &&!item.alwaysShow
+        hasOneShowingChild(item.children, item) &&
+        (!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
+        !item.alwaysShow
       "
     >
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
@@ -44,7 +46,7 @@
 </template>
 
 <script>
-import path from 'path-browserify'
+import path from "path-browserify";
 import { isExternal } from "@/utils/validate";
 import Item from "./Item.vue";
 import AppLink from "./Link.vue";
@@ -60,10 +62,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    basePath:{
-      type:String,
-      default:''
-    }
+    basePath: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     // 使用render函数重构
@@ -73,7 +75,6 @@ export default {
   methods: {
     hasOneShowingChild(children = [], parent) {
       const showingChildren = children.filter((item) => {
-
         if (item.hidden) {
           return false;
         } else {
@@ -102,7 +103,7 @@ export default {
       if (isExternal(this.basePath)) {
         return this.basePath;
       }
-      return path.resolve(this.basePath,routePath);
+      return path.resolve(this.basePath, routePath);
     },
   },
 };

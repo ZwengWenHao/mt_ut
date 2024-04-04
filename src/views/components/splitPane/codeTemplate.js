@@ -37,16 +37,15 @@ export function codeContent() {
 </div>
 </template>
   
-  <script>
+<script>
 import splitPane from "vue-splitpane";
 export default {
-componnets: { splitPane },
-methods: {
-  resize() {},
-},
+  componnets: { splitPane },
+  methods: {
+    resize() {},
+  },
 };
 </script>
-  
 `
 return code
 }

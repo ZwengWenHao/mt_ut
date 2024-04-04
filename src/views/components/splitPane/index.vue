@@ -36,8 +36,8 @@
     <CodeDrawer ref="codeDrawer" :description="textDescription" />
   </div>
 </template>
-  
-  <script>
+
+<script>
 import { codeContent } from "./codeTemplate";
 export default {
   data() {
@@ -55,8 +55,8 @@ export default {
   },
 };
 </script>
-  
-  <style lang="scss" scoped>
+
+<style lang="scss" scoped>
 .split_pane {
   height: calc(100vh - 84px);
   padding: 10px;

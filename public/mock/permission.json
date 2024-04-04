@@ -146,7 +146,7 @@
     "hidden": false,
     "meta": {
       "icon": "select",
-      "noCache": true,
+      "noCache": false,
       "title": "空模版"
     },
     "name": "aemptyTemplate",

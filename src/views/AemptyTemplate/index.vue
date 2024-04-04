@@ -34,8 +34,8 @@
     </split-pane>
   </div>
 </template>
-    
-    <script>
+
+<script>
 import splitPane from "vue-splitpane";
 export default {
   componnets: { splitPane },
@@ -44,4 +44,3 @@ export default {
   },
 };
 </script>
-    
