@@ -1,5 +1,30 @@
 [
   {
+    "alwaysShow": false,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "select",
+      "noCache": true,
+      "title": "Icons"
+    },
+    "name": "aemptyTemplate",
+    "path": "/icons",
+    "children": [
+      {
+        "component": "icons/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "Icons"
+        },
+        "name": "Icons",
+        "path": "icons"
+      }
+    ]
+  },
+  {
     "alwaysShow": true,
     "component": "Layout",
     "hidden": false,

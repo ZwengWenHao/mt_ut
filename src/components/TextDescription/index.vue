@@ -6,7 +6,7 @@
     </el-card>
     <TooltipText content="使用">
       <el-button
-        v-if="!$attrs.is"
+        v-if="!text"
         class="text_description_btn"
         plain
         @click="viewTutorial"

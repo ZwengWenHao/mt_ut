@@ -1,10 +1,12 @@
 <template>
   <GlobalContainer>
-    <TextDescription text @viewTutorial="viewTutorial">
-      <ViewPath link="https://github.com/rowanwins/vue-dropzone" />
-    </TextDescription>
-    <ExplainText code="yarn add dropzone" />
-    <ExplainText code="npm install vue2-dropzone" />
+    <CollapsePanel collapseText="带有图像预览的拖放文件上传dropzone">
+      <TextDescription @viewTutorial="viewTutorial">
+        <ViewPath link="https://github.com/rowanwins/vue-dropzone" />
+      </TextDescription>
+      <ExplainText code="yarn add dropzone 或者 npm install vue2-dropzone" />
+    </CollapsePanel>
+
     <div class="editor-container">
       <dropzone
         id="myVueDropzone"
