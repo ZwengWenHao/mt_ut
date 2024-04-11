@@ -1,6 +1,6 @@
 <template>
   <el-link @click="openBrowserWindow(link)">
-    {{title}} {{ link }}
+    {{ title }} {{ link }} {{ explain }}
   </el-link>
 </template>
 
@@ -14,6 +14,10 @@ export default {
       default: "",
     },
     title: {
+      type: String,
+      default: "查看文档",
+    },
+    explain: {
       type: String,
       default: "查看文档",
     },

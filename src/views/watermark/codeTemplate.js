@@ -1,5 +1,6 @@
-import Vue from 'vue'
-// 如果希望在整个项目中都添加水印，可以在app.vue中使用指令
+export function codeContent() {
+    let str =
+`// 如果希望在整个项目中都添加水印，可以在app.vue中使用指令
 // <template>
 //   <div id="app">
 //     <router-view v-watermark="{text: '水印名称', textColor: 'rgba(180, 180, 180, 0.3)'}" />
@@ -12,6 +13,7 @@ import Vue from 'vue'
 //     <img src="" alt="" >
 //   </div>
 // </template>
+
 Vue.directive('watermark', {
     bind: function (el, binding) {
         // 水印配置项
@@ -70,3 +72,6 @@ Vue.directive('watermark', {
         }
     }
 });  
+`
+    return str
+}

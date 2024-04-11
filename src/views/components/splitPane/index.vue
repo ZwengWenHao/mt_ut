@@ -2,11 +2,9 @@
   <div class="split_pane">
     <CollapsePanel :collapseText="collapseText">
       <TextDescription @viewTutorial="viewTutorial">
-        <ViewPath
-          link="https://github.com/PanJiaChen/vue-split-pane"
-        ></ViewPath>
+        <ViewPath link="https://github.com/PanJiaChen/vue-split-pane" />
       </TextDescription>
-      <ExplainText :code="codeText"></ExplainText>
+      <ExplainText :code="codeText" />
     </CollapsePanel>
     <SplitPane
       @resize="resize"

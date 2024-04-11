@@ -4,7 +4,7 @@
     :visible.sync="drawer"
     :direction="direction"
     :before-close="handleClose"
-    size="50%"
+    :size="is_grow ? '61%' : '50%'"
     :withHeader="false"
   >
     <ExplainText :is_copy="false" :code="description"></ExplainText>
@@ -24,10 +24,23 @@ export default {
     return {
       drawer: false,
       direction: "rtl",
+      is_grow: false,
     };
   },
+  beforeMount() {
+    window.addEventListener("resize", this.Mobile);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.Mobile);
+  },
   methods: {
-    open(code) {
+    Mobile() {
+      const WIDTH = 1426;
+      const { body } = document;
+      const rect = body.getBoundingClientRect();
+      this.is_grow = rect.width - 1 < WIDTH;
+    },
+    open() {
       this.drawer = true;
     },
     handleClose() {
@@ -37,5 +50,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

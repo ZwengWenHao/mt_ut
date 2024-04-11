@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
   NProgress.start()
   if (getToken()) {
     if (to.path === '/login') {
-      next({ path: '/' })
+      return next({ path: '/' })
       NProgress.done()
     } else {
       if (!store.getters.roles.length) {
@@ -41,12 +41,12 @@ router.beforeEach((to, from, next) => {
         store.dispatch('user/updateLoadMenus')
         loadMenus(next, to)
       } else {
-        next()
+        return next()
       }
     }
   } else {
     if (whiteList.indexOf(to.path) !== -1) {
-      next()
+      return next()
     } else {
       next(`/login?redirect=${to.fullPath}`)
       NProgress.done()

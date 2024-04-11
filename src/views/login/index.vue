@@ -61,7 +61,7 @@ export default {
     return {
       formData: {
         username: "admin",
-        password: "123456",
+        password: "",
         code: "",
         uuid: "",
         rememberMe: false,

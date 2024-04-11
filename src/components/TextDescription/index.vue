@@ -1,7 +1,7 @@
 <template>
   <!-- 文本说明  is--否显示操作按钮  -->
-  <div class="text_description_wrap">
-    <el-card class="text_description">
+  <div :class="['text_description_wrap', text ? 'is_mb' : '']">
+    <el-card :class="['text_description', { text: text }]">
       <slot />
     </el-card>
     <TooltipText content="使用">
@@ -19,6 +19,12 @@
 
 <script>
 export default {
+  props: {
+    text: {
+      type: Boolean,
+      default: false,
+    },
+  },
   name: "TextDescription",
   methods: {
     viewTutorial() {
@@ -44,11 +50,18 @@ export default {
       color: #337ab7;
     }
   }
+  .text_description.text {
+    padding: 10px 10px;
+  }
+
   .text_description_btn {
     padding: 10px 10px;
     height: auto;
     font-size: 16px;
     cursor: pointer;
   }
+}
+.text_description_wrap.is_mb {
+  margin-bottom: 5px;
 }
 </style>

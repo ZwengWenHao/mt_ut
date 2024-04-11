@@ -30,32 +30,6 @@
     "component": "Layout",
     "hidden": false,
     "meta": {
-      "icon": "dialog",
-      "noCache": true,
-      "title": "弹窗组件"
-    },
-    "name": "弹窗组件",
-    "path": "/dialog",
-    "redirect": "noredirect",
-    "children": [
-      {
-        "component": "dialog/index",
-        "hidden": false,
-        "meta": {
-          "icon": "",
-          "noCache": true,
-          "title": "可拖动的弹窗"
-        },
-        "name": "DragDialog",
-        "path": "dragDialog"
-      }
-    ]
-  },
-  {
-    "alwaysShow": true,
-    "component": "Layout",
-    "hidden": false,
-    "meta": {
       "icon": "select",
       "noCache": true,
       "title": "下拉选择器"
@@ -137,6 +111,75 @@
         },
         "name": "SplitPane",
         "path": "splitPane"
+      },
+      {
+        "component": "dialog/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "可拖动的弹窗"
+        },
+        "name": "DragDialog",
+        "path": "dragDialog"
+      },
+      {
+        "component": "components/courseSchedule",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "拖拽课程表"
+        },
+        "name": "CourseSchedule",
+        "path": "courseSchedule"
+      },
+      {
+        "component": "components/gradient",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "样式特效"
+        },
+        "name": "Gradient",
+        "path": "gradient"
+      },
+      {
+        "component": "components/dropzone",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "图片多个上传"
+        },
+        "name": "Dropzone",
+        "path": "dropzone"
+      }
+    ]
+  },
+  {
+    "alwaysShow": false,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "select",
+      "noCache": true,
+      "title": "水印"
+    },
+    "name": "watermark",
+    "path": "/watermark",
+    "children": [
+      {
+        "component": "watermark/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "水印"
+        },
+        "name": "Watermark",
+        "path": "index"
       }
     ]
   },
@@ -161,31 +204,6 @@
           "title": "空模版"
         },
         "name": "AemptyTemplate",
-        "path": "index"
-      }
-    ]
-  },
-  {
-    "alwaysShow": false,
-    "component": "Layout",
-    "hidden": false,
-    "meta": {
-      "icon": "select",
-      "noCache": true,
-      "title": "水印"
-    },
-    "name": "Watermark",
-    "path": "/watermark",
-    "children": [
-      {
-        "component": "watermark/index",
-        "hidden": false,
-        "meta": {
-          "icon": "",
-          "noCache": true,
-          "title": "水印"
-        },
-        "name": "Watermark",
         "path": "index"
       }
     ]
