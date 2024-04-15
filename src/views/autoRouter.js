@@ -14,5 +14,4 @@ contexts.keys().forEach(value => {
         component: () => import(`@/views${componentLocation}`)
     })
 })
-
 export default routerArr

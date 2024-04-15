@@ -4,7 +4,7 @@
     "component": "Layout",
     "hidden": false,
     "meta": {
-      "icon": "select",
+      "icon": "icon",
       "noCache": true,
       "title": "Icons"
     },
@@ -118,7 +118,7 @@
     "component": "Layout",
     "hidden": false,
     "meta": {
-      "icon": "select",
+      "icon": "comp",
       "noCache": true,
       "title": "组件库"
     },
@@ -180,6 +180,17 @@
         },
         "name": "Dropzone",
         "path": "dropzone"
+      },
+      {
+        "component": "components/shardUpload",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "文件分片上传"
+        },
+        "name": "ShardUpload",
+        "path": "shardUpload"
       }
     ]
   },
@@ -188,7 +199,7 @@
     "component": "Layout",
     "hidden": false,
     "meta": {
-      "icon": "select",
+      "icon": "watermark",
       "noCache": true,
       "title": "水印"
     },
@@ -213,7 +224,7 @@
     "component": "Layout",
     "hidden": false,
     "meta": {
-      "icon": "select",
+      "icon": "template",
       "noCache": true,
       "title": "空模版"
     },

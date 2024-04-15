@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import JsonEditor from "../../components/JsonEditor/index.vue";
+import JsonEditor from "../../../components/JsonEditor/index.vue";
 import { Local } from "@/utils/storage";
 import { mapActions, mapGetters } from "vuex";
 export default {

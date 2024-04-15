@@ -1,51 +1,133 @@
 <template>
-  <div class="container">
-    <!-- 简单使用 -->
-    <split-pane
-      @resize="resize"
-      :min-percent="10"
-      :default-percent="30"
-      split="vertical"
-    >
-      <template slot="paneL">
-        <div class="paneL"></div>
-      </template>
-      <template slot="paneR">right content</template>
-    </split-pane>
-    <!-- 嵌套使用 -->
-    <split-pane
-      @resize="resize"
-      :min-percent="10"
-      :default-percent="30"
-      split="vertical"
-    >
-      <template slot="paneL">left content</template>
-      <template slot="paneR">
-        <split-pane
-          @resize="resize"
-          :min-percent="10"
-          :default-percent="30"
-          split="horizontal"
-        >
-          <template slot="paneL">top content</template>
-          <template slot="paneR">bottom content</template>
-        </split-pane>
-      </template>
-    </split-pane>
+  <div class="box">
+    <div class="left">
+      <CategoryGroup :current.sync="current" />
+      <TimeAxis2
+        :is_invert="getCurrent(current, 'invert')"
+        :is_vertical="getCurrent(current, 'vertical')"
+        :timelineList="timelineList"
+       />
+    </div>
+    <TimeAxis1 class="right" :timelineList="timelineList3" />
   </div>
 </template>
 
 <script>
-import splitPane from "vue-splitpane";
+import { CategoryGroup, TimeAxis1, TimeAxis2 } from "./components/index";
+import { generateRandomId } from "@/utils/random";
+import moment from "moment";
 export default {
-  componnets: { splitPane },
-  methods: {
-    resize() {},
+  name: "",
+  components: { TimeAxis1, TimeAxis2, CategoryGroup },
+  data() {
+    return {
+      current: "default",
+      list: ["default", "invert", "vertical"],
+      timelineList: [
+        {
+          id: generateRandomId(),
+          date: moment().format("MM-DD"),
+          content: "",
+          title: "时间轴",
+        },
+        {
+          id: generateRandomId(),
+          date: moment().format("MM-DD"),
+          content: "",
+          title: "时间轴",
+        },
+        {
+          id: generateRandomId(),
+          date: moment().format("MM-DD"),
+          content: "",
+          title: "时间轴",
+        },
+        {
+          id: generateRandomId(),
+          date: "",
+          content: "",
+          title: "时间轴",
+        },
+      ],
+      timelineList2: [
+        {
+          id: generateRandomId(),
+          date: moment().format("MM-DD"),
+          content: "",
+          title: "时间轴",
+        },
+        {
+          id: generateRandomId(),
+          date: moment().format("MM-DD"),
+          content: "",
+          title: "时间轴",
+        },
+        {
+          id: "",
+          date: "",
+          content: "",
+          title: "",
+        },
+        {
+          id: "",
+          date: "",
+          content: "",
+          title: "",
+        },
+      ],
+      timelineList3: [
+        {
+          id: generateRandomId(),
+          date: moment().format("YYYY-MM-DD"),
+          content: "时间轴是一个按时间顺序描述一系列事件的很好方式",
+          title: "时间轴",
+        },
+        {
+          id: generateRandomId(),
+          date: moment().format("YYYY-MM-DD"),
+          content: "时间轴是一个按时间顺序描述一系列事件的很好方式",
+          title: "时间轴",
+        },
+        {
+          id: generateRandomId(),
+          date: moment().format("YYYY-MM-DD"),
+          content: "时间轴是一个按时间顺序描述一系列事件的很好方式",
+          title: "时间轴",
+        },
+        {
+          id: generateRandomId(),
+          date: moment().format("YYYY-MM-DD"),
+          content: "时间轴是一个按时间顺序描述一系列事件的很好方式",
+          title: "时间轴",
+        },
+      ],
+    };
+  },
+  computed: {
+    getCurrent() {
+      return function (v, type) {
+        if (v === "default") {
+          return false;
+        } else if (v === type) {
+          return true;
+        }
+      };
+    },
   },
 };
 </script>
-<style>
-.container{
-  height:100vh;
+
+<style lang="scss">
+.box {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  box-sizing: border-box;
+  .left {
+    width: 50%;
+  }
+  .right {
+    width: 50%;
+  }
 }
 </style>

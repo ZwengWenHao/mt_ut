@@ -9,3 +9,11 @@
 @mixin r4{
   border-radius: 4px;
 }
+@mixin df_fc{
+  display: flex;
+  flex-direction: column;
+}
+@mixin df_ac{
+  display: flex;
+  align-items: center;
+}

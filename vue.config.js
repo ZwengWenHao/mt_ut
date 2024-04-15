@@ -12,6 +12,7 @@ module.exports = defineConfig({
   outputDir: 'dist',
   assetsDir: 'static',
   transpileDependencies: true,
+  productionSourceMap: false,
   configureWebpack: {
     name: defaultSettings.title,
     plugins: [
