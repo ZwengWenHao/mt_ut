@@ -6,7 +6,11 @@
         url="http://47.111.30.53:9520/interaction/file/chunkUploadFile"
         chunk_size="3MB"
         :multi_selection="false"
-        :filters="{ prevent_duplicates: true }"
+        :filters="{
+          mime_types : [
+            { title : 'Image files', extensions : 'jpg,gif,png' },
+          ],
+        }"
         :FilesAdded="filesAdded"
         :BeforeUpload="beforeUpload"
         @inputUploader="inputUploader"

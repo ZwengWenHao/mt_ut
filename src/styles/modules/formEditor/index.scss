@@ -1,0 +1,13 @@
+.form-container {
+  --h: 100%;
+  width: 100%;
+  height: calc(100vh - 84px);
+  display: flex;
+  padding: 5px;
+  box-sizing: border-box;
+  gap: 3px;
+  justify-content: space-between
+}
+@import "./formButton.scss";
+@import "./formView.scss";
+@import "./formInfo.scss";

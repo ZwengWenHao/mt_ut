@@ -8,7 +8,7 @@
       "noCache": true,
       "title": "Icons"
     },
-    "name": "aemptyTemplate",
+    "name": "icons",
     "path": "/icons",
     "children": [
       {
@@ -21,6 +21,31 @@
         },
         "name": "Icons",
         "path": "icons"
+      }
+    ]
+  },
+  {
+    "alwaysShow": false,
+    "component": "Layout",
+    "hidden": false,
+    "meta": {
+      "icon": "icon",
+      "noCache": true,
+      "title": "Icons"
+    },
+    "name": "formEditor",
+    "path": "/formEditor",
+    "children": [
+      {
+        "component": "formEditor/index",
+        "hidden": false,
+        "meta": {
+          "icon": "",
+          "noCache": true,
+          "title": "表单编辑"
+        },
+        "name": "FormEditor",
+        "path": "formEditor"
       }
     ]
   },
