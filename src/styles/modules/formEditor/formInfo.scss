@@ -1,5 +1,8 @@
-.form-info__wrapper {
-  width: 25%;
+.form-info {
+  width: 21%;
   height: var(--h);
-  box-shadow: $cardShadow;
+  // box-shadow: $cardShadow;
+  &__tabs{
+    height: 100%;
+  }
 }

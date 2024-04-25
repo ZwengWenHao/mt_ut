@@ -3,9 +3,9 @@
 @import "./sidebar.scss";
 @import "./mixin.scss";
 @import "./modules/home.scss";
-@import './modules/collapsePanel.scss';
-@import './modules/formEditor/index.scss';
-
+@import "./modules/collapsePanel.scss";
+@import "./modules/formEditor/index.scss";
+@import "./element.scss";
 .spread {
   @include spread;
 }

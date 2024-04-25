@@ -2,12 +2,17 @@
   <div class="form-container">
     <formButton />
     <formView
-      :dataList="dataList"
-      :blockIndex="blockIndex"
-      :chooseRow="chooseRow"
-      :modelInfo="modelInfo"
+      :dataList.sync="dataList"
+      :blockIndex.sync="blockIndex"
+      :chooseRow.sync="chooseRow"
+      :modelInfo.sync="modelInfo"
     />
-    <formInfo />
+    <formInfo
+      :chooseRow.sync="chooseRow"
+      :modelInfo.sync="modelInfo"
+      :chooseBlock="dataList[blockIndex]"
+      @deleteBlock="deleteBlock"
+    />
   </div>
 </template>
 <script>
@@ -25,8 +30,15 @@ export default {
       dataList: [],
       blockIndex: 0,
       chooseRow: {},
-      modelInfo: {},
+      modelInfo: {
+        name: "",
+      },
     };
+  },
+  methods: {
+    deleteBlock() {
+      this.dataList.splice(this.blockIndex, 1);
+    },
   },
 };
 </script>
